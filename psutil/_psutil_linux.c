@@ -46,7 +46,7 @@ static const int NCPUS_START = sizeof(unsigned long) * CHAR_BIT;
 #define PSUTIL_HAVE_PRLIMIT \
     (LINUX_VERSION_CODE >= KERNEL_VERSION(2, 6, 36)) && \
     (__GLIBC__ >= 2 && __GLIBC_MINOR__ >= 13) && \
-    defined(__NR_prlimit64)
+    defined(__NR_prlimit64) && !defined(__prlimit64_disable)
 
 #if PSUTIL_HAVE_PRLIMIT
     #define _FILE_OFFSET_BITS 64
